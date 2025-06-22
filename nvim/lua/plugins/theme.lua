@@ -1,11 +1,11 @@
 return {
-	"rose-pine/neovim",
-	name = "rose-pine",
-	lazy = false,
-	priority = 1000,
+  "bluz71/vim-moonfly-colors",
+  name = "moonfly",
+  lazy = false,
+  priority = 1000,
 
-	config = function()
-		-- load the colorscheme here
-		vim.cmd([[colorscheme rose-pine]])
-	end,
+  config = function()
+    -- load the colorscheme here
+    vim.cmd([[colorscheme moonfly]])
+  end,
 }
