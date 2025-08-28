@@ -12,9 +12,14 @@ return {
 				rust = { "rustfmt", lsp_format = "fallback" },
 				-- Conform will run the first available formatter
 				javascript = { "eslint_d", "prettierd", "prettier", "biome", stop_after_first = true },
+				typescript = { "eslint_d", "prettierd", "prettier", "biome", stop_after_first = true },
 				json = { "eslint_d", "prettierd", "prettier", "biome", stop_after_first = true },
 				css = { "biome", "prettierd", "prettier", stop_after_first = true },
 				php = { "php_cs_fixer" },
+				elixir = { "mix" },
+				eelixir = { "mix" },
+				heex = { "mix" },
+				surface = { "mix" },
 			},
 			format_on_save = function(bufnr)
 				-- Disable with a global or buffer-local variable

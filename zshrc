@@ -16,7 +16,7 @@ source $ZSH/oh-my-zsh.sh
 { eval "${ssh-agent}"; ssh-add ~/.ssh/id_rsa --apple-use-keychain } &>/dev/null
 
 # Plugins 
-plugins=(z git ssh-agent node npm nvm sudo vscode sh-syntax-highlighting fast-syntax-highlighting)
+plugins=(z git ssh-agent node npm nvm sudo vscode fast-syntax-highlighting)
 
 # Alias 
 alias doserver="ssh -i ~/.ssh/digitalocean root@207.154.228.75"
@@ -70,3 +70,6 @@ export PATH="$COMPOSER_BIN/vendor/bin:$PATH"
 
 #Imagemagick
 export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+
+# PG
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

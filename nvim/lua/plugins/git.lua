@@ -14,6 +14,7 @@ return {
 			"LazyGit",
 		},
 		dependencies = {
+			"nvim-telescope/telescope.nvim",
 			"nvim-lua/plenary.nvim",
 		},
 		keys = {
