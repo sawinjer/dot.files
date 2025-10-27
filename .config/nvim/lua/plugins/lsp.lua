@@ -76,22 +76,24 @@ return {
 			end
 
 			for _, server in pairs(lsp_default_servers) do
-				lspconfig[server].setup({
+				vim.lsp.config(server, {
 					autostart = true,
 					capabilities = capabilities,
 					on_attach = on_attach,
 				})
+				vim.lsp.enable(server)
 			end
 
 			-- configure emmet language server
-			lspconfig["emmet_ls"].setup({
+			vim.lsp.config("emmet_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 			})
+			vim.lsp.enable("emmet_ls")
 
 			-- configure lua server (with special settings)
-			lspconfig["lua_ls"].setup({
+			vim.lsp.config("lua_ls", {
 				autostart = true,
 				capabilities = capabilities,
 				on_attach = on_attach,
@@ -111,26 +113,30 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("lua_ls")
 
-			lspconfig["ts_ls"].setup({
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			vim.lsp.enable("ts_ls")
 
 			local elixirls_path = vim.fn.expand("$MASON/packages/elixir-ls/language_server.sh")
-			lspconfig["elixirls"].setup({
+			vim.lsp.config("elixirls", {
 				cmd = { elixirls_path },
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			vim.lsp.enable("elixirls")
 
-			lspconfig["tailwindcss"].setup({
+			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				tailwindCSS = {
 					classAttributes = { "class", "className", "class:list", "classList", "ngClass", "classes" },
 				},
 			})
+			vim.lsp.enable("tailwindcss")
 		end,
 		keys = {
 			{ "<leader>rs", ":LspRestart<CR>" },
