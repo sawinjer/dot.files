@@ -2,21 +2,25 @@ return {
 	"stevearc/conform.nvim",
 	config = function()
 		local conform = require("conform")
+		local jsconfig = {
+			"biome",
+			"eslint_d",
+			"eslint",
+			"prettierd",
+			"prettier",
+			stop_after_first = true,
+		}
+
 		conform.setup({
 			log_level = vim.log.levels.DEBUG,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform will run multiple formatters sequentially
 				python = { "isort", "black" },
-				-- You can customize some of the format options for the filetype (:help conform.format)
 				rust = { "rustfmt", lsp_format = "fallback" },
-				-- Conform will run the first available formatter
-				-- javascript = { "eslint_d", "biome", "prettierd", "prettier", stop_after_first = true },
-				-- typescript = { "eslint_d", "biome", "prettierd", "prettier", stop_after_first = true },
-				javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
-				typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
-				json = { "biome", "prettierd", "prettier", stop_after_first = true },
-				css = { "biome", "prettierd", "prettier", stop_after_first = true },
+				javascript = jsconfig,
+				typescript = jsconfig,
+				json = jsconfig,
+				css = jsconfig,
 				php = { "php_cs_fixer" },
 				elixir = { "mix" },
 				eelixir = { "mix" },
