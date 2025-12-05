@@ -7,6 +7,15 @@ return {
 			{ "folke/lazydev.nvim", opts = {} },
 		},
 		config = function()
+			vim.diagnostic.config({
+				virtual_text = {
+					source = "always",
+				},
+				float = {
+					source = "always",
+				},
+			})
+
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -24,7 +33,7 @@ return {
 				keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 				keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 				keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-				keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts)
+				keymap.set("n", "<leader>oe", vim.diagnostic.open_float)
 
 				if client.name == "ts_ls" then
 					keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>", opts)
@@ -32,7 +41,6 @@ return {
 				end
 			end
 
-			-- Apply to all LSP servers
 			vim.lsp.config("*", {
 				capabilities = capabilities,
 				on_attach = on_attach,
