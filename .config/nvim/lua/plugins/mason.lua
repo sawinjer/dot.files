@@ -26,6 +26,7 @@ return {
 				"docker_language_server",
 				"dockerls",
 			},
+			automatic_enable = true,
 		},
 		dependencies = {
 			{

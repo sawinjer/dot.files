@@ -30,6 +30,7 @@ end
 
 ### Rust
 set -x PATH $HOME/.rust_bin $PATH
+set -x PATH $HOME/.cargo/bin $PATH
 
 ### Java
 set -x PATH /opt/homebrew/opt/openjdk@21/bin $PATH
