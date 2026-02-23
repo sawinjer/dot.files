@@ -43,11 +43,20 @@ return {
 						keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>", opts)
 						keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>", opts)
 					end
+					if client and client.name == "biome" then
+						keymap.set("n", "<leader>oi", vim.lsp.buf.code_action, opts)
+					end
 				end,
 			})
 
 			vim.lsp.config("*", {
 				capabilities = capabilities,
+			})
+
+			vim.lsp.config("biome", {
+				name = "biome",
+				filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json" },
+				cmd = { "biome", "lsp-proxy" },
 			})
 		end,
 	},
