@@ -85,3 +85,6 @@ if status is-interactive
 end
 
 
+
+# opencode
+fish_add_path /home/sawinjer/.opencode/bin
